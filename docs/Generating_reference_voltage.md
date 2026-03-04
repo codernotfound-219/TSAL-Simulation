@@ -17,6 +17,10 @@ Reference (concept video): <https://youtu.be/NecbHbGAkkc?t=150>
 
 ## USAGE
 
+## Circuit Diagram / Schematic
+
+![Circuit Diagram / Schematic](../images/Generating_reference_voltage.png)
+
 ### What value do we need?
 
 From the TS voltage reader stage:

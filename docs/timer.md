@@ -12,6 +12,10 @@ Reference (concept video): <https://www.youtube.com/watch?v=oZzjmAbyyIQ>
 
 ## USAGE
 
+## Circuit Diagram / Schematic
+
+![Circuit Diagram / Schematic](../images/Timer.png)
+
 Component values:
 
 - $R_a = 1\text{k}\Omega$

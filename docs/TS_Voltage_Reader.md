@@ -18,6 +18,24 @@ Reference (concept video): <https://www.youtube.com/watch?v=2PVD46IhLro>
 
 ## USAGE
 
+## Circuit Diagram / Schematic
+
+### Power rails (LVS vs TS domains)
+
+In hardware, galvanic isolation means the low-voltage side and tractive-system side **do not share a conductive path**.
+In LTspice, truly isolated grounds can create “floating node” convergence issues, so a common trick is to connect the two ground domains with a very large resistor.
+
+Here, a **1 GΩ** resistor ties the grounds together:
+
+- It is large enough to keep current essentially negligible (preserving the idea of isolation)
+- It gives the simulator a DC reference path so nodes don’t float
+
+![Circuit Diagram / Schematic](../images/TS_Voltage_Reader_1.png)
+
+### TS voltage reader (divider + isolation amplifier)
+
+![Circuit Diagram / Schematic](../images/TS_Voltage_Reader_2.png)
+
 ### Divider values
 
 - Top resistor: **3 × 470 kΩ** in series (so each sees < 200 V)

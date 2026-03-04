@@ -2,6 +2,10 @@
 
 The **LT1017 comparator** is used to decide whether the (scaled) TS voltage is above the (scaled) threshold.
 
+## Circuit Diagram / Schematic
+
+![Circuit Diagram / Schematic](../images/Comparator.png)
+
 ## Connections
 
 - **Non-inverting input (+):** output from the isolation amplifier (scaled TS voltage)

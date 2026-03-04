@@ -14,6 +14,10 @@ The LED should glow **only when both conditions are true**:
 
 ## USAGE
 
+## Circuit Diagram / Schematic
+
+![Circuit Diagram / Schematic](../images/red_led_circuit.png)
+
 - Inputs to AND gate: **comparator output** and **timer square wave**
 - AND gate output drives the **gate** of the NMOS
 
