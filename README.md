@@ -39,7 +39,7 @@ Each stage of the design is explained in the following documents:
 
 ### Proof of simulation
 
-- `docs/simulation_verification.pdf`
+- [docs/simulation_verification.pdf](docs/simulation_verification.pdf)
 
 ### Run the simulation
 

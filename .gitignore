@@ -5,3 +5,5 @@
 *.op.raw
 *.raw
 *.plt
+
+docs/*.docx
