@@ -1,38 +1,46 @@
-# TSAL SIMULATION
-## TSAL : Red Light System
+# TSAL Simulation
 
-- OBJECTIVE:
-    - A red led should flash ( 2~5 Hz at 50% Duty Cycle) when:
-        1. LVS is active
-        2. Voltage across DC-Link Capacitor exceeds Threshold
+This repository contains an LTspice simulation of a TSAL-style **red warning light system**.
 
+In this context, **TSAL** refers to a *Tractive System Active Light*: a red LED that flashes when the (simulated) tractive-system voltage exceeds a defined threshold.
 
-- ASSUMPTIONS:
-    1. LVS is assumed to be always active and supplying +12V.
-    2. Instead of the DC-Link Capacitor, the Tractive System's voltage is taken for simplicity.
-    3. The tractive system's voltage is allowed to go from 0 to 600V in 2 seconds. (RAMP fn.)
-    4. The threshold voltage is set to 60V.
+## Objective
 
+A red LED should flash (**2–5 Hz**, **50% duty cycle**) when:
 
-- REALIZATION:
-    1. Read TS voltage to an appropriate step down value.
-    2. Generate a reference voltage that mimicks the threshold value.
-    3. Compare the read TS_Voltage and this reference voltage and provide an output high if value exceeds threshold.
-    4. Use a timer to generate a 5Hz, 50% duty cycle square wave.
-    5. Supply the square wave and the comparator output to an AND gate.
-    6. Use the output of the AND gate to trigger a switch turning ON the LED.
-    
+1. The **LVS** (low-voltage supply) is active
+2. The voltage across the **DC-Link capacitor** (approximated here by the tractive system voltage) exceeds a threshold
 
-- DOCUMENTATION:
-    - Refer to the following documents to understand how each step of realization was achieved.
-        1. docs/TS_Voltage_Reader.md
-        2. docs/Generating_reference_voltage.md
-        3. docs/comparator.md
-        4. docs/timer.md
-        5. docs/red_led_circuit.md
+## Assumptions
 
-    - Proof of Simulation:
-        1. docs/simulation_verification.pdf
+1. The LVS is assumed to always be active and supply **+12 V**.
+2. Instead of modeling the DC-Link capacitor directly, the tractive system (TS) voltage is used for simplicity.
+3. The TS voltage ramps from **0 V to 600 V** in **2 seconds** (using an LTspice `RAMP()` style behavior).
+4. The threshold voltage is set to **60 V**.
 
-    - To run the simulation yourself, check out:
-        1. docs/running_simulation.md
+## Realization (Implementation)
+
+1. Read the TS voltage and **step it down** to a low-voltage signal.
+2. Generate a **reference voltage** that represents the *same threshold* on the low-voltage side.
+3. Compare the stepped-down TS voltage against the reference; output logic-high when TS > threshold.
+4. Use a timer to generate a **~5 Hz**, **50% duty** square wave.
+5. AND the square wave with the comparator output.
+6. Use the AND output to drive a switch that turns the LED on/off.
+
+## Documentation
+
+Each stage of the design is explained in the following documents:
+
+1. [docs/TS_Voltage_Reader.md](docs/TS_Voltage_Reader.md)
+2. [docs/Generating_reference_voltage.md](docs/Generating_reference_voltage.md)
+3. [docs/comparator.md](docs/comparator.md)
+4. [docs/timer.md](docs/timer.md)
+5. [docs/red_led_circuit.md](docs/red_led_circuit.md)
+
+### Proof of simulation
+
+- `docs/simulation_verification.pdf`
+
+### Run the simulation
+
+- See [docs/running_simulation.md](docs/running_simulation.md)

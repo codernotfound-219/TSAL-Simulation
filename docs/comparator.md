@@ -1,8 +1,21 @@
+# Comparator (TS Voltage vs Threshold)
 
-The comparator op-amp LT1017 was used for this purpose.
-non-inverting input: output from isolation amplifier (reads TS voltage)
-inverting input: the output from TL431 (reference to 60V)
+The **LT1017 comparator** is used to decide whether the (scaled) TS voltage is above the (scaled) threshold.
 
-The output goes high if the non-inverting input exceeds the inverting input.
-A pullup resistor of 10kΩ was used to boost the output.
-A zener clamp is used to limit the output to 5V. (for the AND gate)
+## Connections
+
+- **Non-inverting input (+):** output from the isolation amplifier (scaled TS voltage)
+- **Inverting input (−):** output from the TL431 reference network (scaled 60 V threshold)
+
+## Logic
+
+The comparator output goes high when:
+
+$$
+V_{TS,scaled} > V_{ref}
+$$
+
+## Output conditioning (for logic gating)
+
+- The LT1017 output stage is commonly used as an **open-collector output**, so a **pull-up resistor** (e.g., 10 kΩ) is required to obtain a defined logic-high level.
+- If the pull-up is to a voltage higher than 5 V, a **zener clamp** can be used to limit the logic level to ~5 V for the AND gate input.
