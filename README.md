@@ -44,3 +44,4 @@ Each stage of the design is explained in the following documents:
 ### Run the simulation
 
 - See [docs/running_simulation.md](docs/running_simulation.md)
+- Falstad Simulation: `download the falstad-sample-tsal.txt and run it in falstad.com`
